@@ -147,4 +147,11 @@ public class Main {
         }
         else System.out.println(BOOK_EMPTY);
     }
+    private static void checkPhoneNumber(ContactBook cBook) {
+        if (cBook.getNumberOfContacts() != 0) {
+            cBook.initializeIterator();
+            while ( cBook.hasNext() ) {
+            }
+        }
+    }
 }
