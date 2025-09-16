@@ -22,10 +22,10 @@ public class ContactBook {
         return counter;
     }
 
-    public Contact getNumber(int phone) {
+    public String getNumber(int phone) {
         for (int i = 0; i < counter; i++) {
             if (contacts[i].getPhone() == phone) {
-                return contacts[i];
+                return contacts[i].getName();
             }
         }
         return null;
@@ -78,6 +78,22 @@ public class ContactBook {
                 i++;
         if (found) result = i;
         return result;
+    }
+
+    public boolean checkDifferent() {
+        int i = 0;
+        boolean found = false;
+        while (i < counter && !found){
+            int j = i + 1;
+            while (j < counter && !found) {
+                if (contacts[i].getPhone() == contacts[j].getPhone())
+                    found = true;
+                else
+                    j++;
+            }
+            i++;
+        }
+        return found;
     }
 
     private void resize() {

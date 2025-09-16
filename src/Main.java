@@ -26,7 +26,7 @@ public class Main {
     public static final String CONTACT_UPDATED = "contactBook.Contact updated.";
     public static final String BOOK_EMPTY = "contactBook.Contact book empty.";
     public static final String SAME_PHONE = "There are contacts that share phone numbers.";
-    public static final String DIFFERENT_PHONE = "All contacts have different phone numbers";
+    public static final String DIFFERENT_PHONE = "All contacts have different phone numbers.";
     public static final String QUIT_MSG = "Goodbye!";
     public static final String COMMAND_ERROR = "Unknown command.";
 
@@ -60,8 +60,10 @@ public class Main {
                     break;
                 case GET_NAME:
                     getName(in, cBook);
+                    break;
                 case EQUAL_PHONES:
                     equalPhones(cBook);
+                    break;
                 default:
                     System.out.println(COMMAND_ERROR);
             }
@@ -159,10 +161,9 @@ public class Main {
 
     private static void getName(Scanner in, ContactBook cBook) {
         int phone = in.nextInt(); in.nextLine();
-        Contact c = cBook.getNumber(phone);
-        if (c != null) {
-            System.out.println(c.getName());
-        }
+        String c = cBook.getNumber(phone);
+        if (c != null)
+            System.out.println(c);
         else System.out.println(PHONE_NOT_EXISTS);
     }
 
